@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @list.day %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @list.date %>
+</p>
+
+<p>
+  <strong>Msg:</strong>
+  <% msg_list = @list.msg.split("\n") %>
+<ul>
+  <% msg_list.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+  <div class="containter">
+    <div class="row">
+      <% @lists.each do |list| %>
+        <div class="col-md-2">
+          <hr>
+          <p class="center">
+            <%= link_to 'Show', list %> | <%= link_to 'Edit', edit_list_path(list) %> | <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+          <hr>
+          <p class="center">
+            Day <%= list.day %> of 365
+          </p>
+          <p class="center">
+            <%= list.date.to_date.strftime('%a %b %d, %Y') %>
+          </p>
+          <% msg_list = list.msg.split("\n") %>
+          <p>
+          <ul>
+            <% msg_list.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div class="center">
+      <%= will_paginate @lists %>
+    </div>
+    <div class="center">
+      <%= link_to 'New List', new_list_path %>
+    </div>
+
+  </div>
