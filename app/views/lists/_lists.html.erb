@@ -18,16 +18,14 @@
           <p>
           <ul>
             <% msg_list.each do |msg| %>
-              <li><%= msg %></li>
+              <li><a href="https://yandex.ru/search/?lr=110585&text=<%= msg %>" target="_blank"><%= msg %></a></li>
             <% end %>
           </ul>
           </p>
         </div>
       <% end %>
     </div>
-    <div class="center">
       <%= will_paginate @lists %>
-    </div>
     <div class="center">
       <%= link_to 'New List', new_list_path %>
     </div>
